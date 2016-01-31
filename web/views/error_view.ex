@@ -2,11 +2,12 @@ defmodule Mate.ErrorView do
   use Mate.Web, :view
 
   def render("404.html", assigns) do
-    url = "/#" <>  assigns.conn.request_path
-    assigns = Map.put(assigns, :angular_url, url)
+    #url = "/#" <>  assigns.conn.request_path
+    #assigns = Map.put(assigns, :angular_url, url)
     #Plug.Conn.put_resp_header(assigns.conn,"location", url)
     #Plug.Conn.put_status(assigns.conn,302)
-    render "not_found.html", assigns
+    # render "not_found.html", assigns
+    "Page Not Found"
   end
 
   def render("500.html", _assigns) do

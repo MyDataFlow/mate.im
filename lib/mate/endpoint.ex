@@ -9,7 +9,7 @@ defmodule Mate.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/", from: :mate, gzip: false,
-    only: ~w(css fonts images js views vendor favicon.ico robots.txt)
+    only: ~w(css fonts images js views vendor favicon.png robots.txt)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -34,6 +34,8 @@ defmodule Mate.Endpoint do
     store: :cookie,
     key: "_mate_key",
     signing_salt: "8f7j6N3I"
+
+  plug Mate.RedirectsPlug, %{}
 
   plug Mate.Router
 end
