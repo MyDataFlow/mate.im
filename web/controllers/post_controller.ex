@@ -7,7 +7,7 @@ defmodule Mate.PostController do
   alias Mate.Comment
   alias Mate.User
 
-  @posts_per_page 5
+  @posts_per_page 15
 
   def index(conn,%{"user_id"=> user_id, "page" => page}) do
     uid = String.to_integer(user_id)

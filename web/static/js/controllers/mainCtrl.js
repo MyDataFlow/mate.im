@@ -63,5 +63,11 @@ angular.module('MateIM')
             $rootScope.articlesPage = $scope.currentPage;
             getArticles();
         };
+
+        $scope.firstPage = function(){
+            $scope.currentPage = 1;
+            $scope.articlesPage = 1;
+            getArticles();
+        };
         getArticles();
     });
