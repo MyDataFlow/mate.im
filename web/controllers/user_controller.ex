@@ -37,6 +37,7 @@ defmodule Mate.UserController do
   def update(conn,  params) do
     id = params["id"]
     user = Repo.get(User, String.to_integer(id))
+    params = :maps.remove("id",params)
     if params["oldpassword"] != nil && params["password"] != nil do
       if User.valid_password?(user,params["oldpassword"]) do
         params = :maps.remove("oldpassword",params)
@@ -68,9 +69,12 @@ defmodule Mate.UserController do
       Repo.update(changeset)
       show(conn,%{"id" => Integer.to_string(user.id)})
     else
+      errors = Enum.map(changeset.errors, fn {f, d} ->
+          %{ "error" => d }
+      end)
       conn 
       |> put_status(400)
-      |> text "error"
+      |> json errors
     end
   end
 
@@ -86,7 +90,7 @@ defmodule Mate.UserController do
       conn 
       |> put_status(400)
       |> json errors
-      
+
     end
   end
 

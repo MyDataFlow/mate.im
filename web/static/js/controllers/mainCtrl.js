@@ -1,6 +1,6 @@
 angular.module('MateIM')
-    .controller('MainCtrl', function ($scope, $alert,Article) {
-        $scope.currentPage = 1;
+    .controller('MainCtrl', function ($scope,$rootScope, $alert,Article) {
+        $scope.currentPage = $rootScope.articlesPage ? $rootScope.articlesPage : 1 ;
 
         function getArticles() {
             Article.query({page: $scope.currentPage},
@@ -25,6 +25,7 @@ angular.module('MateIM')
                         if($scope.currentPage < 1){
                             $scope.currentPage = 1;
                         }
+                        $rootScope.articlesPage = $scope.currentPage;
                     }
                 }, function (httpResponse) {
                     $alert({
@@ -44,6 +45,7 @@ angular.module('MateIM')
         $scope.prePage = function () {
             $scope.currentPage = $scope.currentPage - 1;
             if ($scope.currentPage >= 1) {
+                $rootScope.articlesPage = $scope.currentPage;
                 getArticles();
             } else {
                 $scope.currentPage = $scope.currentPage + 1;
@@ -58,6 +60,7 @@ angular.module('MateIM')
         //下一页
         $scope.nextPage = function () {
             $scope.currentPage = $scope.currentPage + 1;
+            $rootScope.articlesPage = $scope.currentPage;
             getArticles();
         };
         getArticles();
