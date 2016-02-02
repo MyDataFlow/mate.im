@@ -55,8 +55,7 @@ defmodule Mate.AuthController do
   	  	|> render "signin.json", token: ""
   	else
         if User.valid_password?(user, password) do
-        	my_token =ControllerCommon.create_token(user.id,
-            user.name, user.email, user.avatar)
+        	my_token =ControllerCommon.create_token(user.id)
          	render conn, "signin.json", token: my_token
         else
           render conn, "signin.json", token: ""

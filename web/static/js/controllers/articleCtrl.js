@@ -80,6 +80,9 @@ angular.module('MateIM')
                     });
                 }
             },function(httpResponse){
+                if (response.status === 401 || response.status === 403) {
+                    return;
+                }
                 $alert({
                     content: '君，貌似我们的服务器鸭梨山大，请稍后再尝试',
                     animation: 'fadeZoomFadeDown',
@@ -127,6 +130,9 @@ angular.module('MateIM')
 
                 }
             },function(httpResponse){
+                if (response.status === 401 || response.status === 403) {
+                    return;
+                }
                 $alert({
                     content: '君，貌似我们的服务器鸭梨山大，请稍后再尝试',
                     animation: 'fadeZoomFadeDown',
@@ -177,6 +183,9 @@ angular.module('MateIM')
                         });
                     }
                 },function(httpResponse){
+                    if (response.status === 401 || response.status === 403) {
+                        return;
+                    }
                     $alert({
                         content: '君，貌似我们的服务器鸭梨山大，请稍后再尝试',
                         animation: 'fadeZoomFadeDown',
@@ -227,6 +236,9 @@ angular.module('MateIM')
                         });
                     }
                 },function(httpResponse){
+                    if (response.status === 401 || response.status === 403) {
+                        return;
+                    }
                     $alert({
                         content: '君，貌似我们的服务器鸭梨山大，请稍后再尝试',
                         animation: 'fadeZoomFadeDown',

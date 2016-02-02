@@ -118,6 +118,11 @@
                     <i class="fa fa-sign-out"></i> 注 消
                   </a>
                 </div>
+                <div class="col-md-6">
+                  <a href="/users/{{currentUser.id}}/edit"  class="btn btn-default btn-block"> 
+                    <i class="fa fa-pencil"></i> 编 辑
+                  </a>
+                </div>
             </div>
           </li>
         </ul>
@@ -154,6 +159,10 @@ angular.module('MateIM', ['ngResource', 'ngSanitize','angularFileUpload',
       .when('/posts/:id', {
         templateUrl: '<%= static_path(@conn, "/views/article.html") %>',
         controller: 'ArticleCtrl'
+      })
+      .when('/users/:id/edit', {
+        templateUrl: '<%= static_path(@conn, "/views/user.edit.html") %>',
+        controller: 'UserEditCtrl'
       })
       .when('/users/:id', {
         templateUrl: '<%= static_path(@conn, "/views/user.html") %>',

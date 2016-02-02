@@ -1,12 +1,14 @@
 angular.module('MateIM')
-    .factory('Auth', function ($http, $location, $rootScope, $alert, $window) {
+    .factory('Auth', function ($http, $location, $rootScope, $alert, $window,User) {
         var token = $window.localStorage.token;
         if (token) {
             $http.get('/api/auth/verify', { params: { token: token } })
                 .success(function(data) {
                     if(data.verify){
                         var payload = JSON.parse($window.atob(token.split('.')[1]));
-                        $rootScope.currentUser = payload;
+                        User.get({id: payload.id},function(user,headers) {
+                            $rootScope.currentUser = user;
+                        });
                     }else{
                         delete $window.localStorage.token;
                         $rootScope.currentUser = null;
@@ -29,7 +31,9 @@ angular.module('MateIM')
                         }else{
                             $window.localStorage.token = data.token;
                             var payload = JSON.parse($window.atob(data.token.split('.')[1]));
-                            $rootScope.currentUser = payload;
+                            User.get({id: payload.id},function(user,headers) {
+                                $rootScope.currentUser = user;
+                            });
                             $location.path('/');
                             $alert({
                                 title: '欢迎回来！',
@@ -78,6 +82,7 @@ angular.module('MateIM')
             logout: function () {
                 delete $window.localStorage.token;
                 $rootScope.currentUser = null;
+                $location.path('/');
                 $alert({
                     content: '您已经成功登出了.',
                     animation: 'fadeZoomFadeDown',

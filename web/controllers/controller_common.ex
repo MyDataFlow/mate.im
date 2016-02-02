@@ -5,13 +5,9 @@ defmodule Mate.ControllerCommon do
   alias Mate.User
   require Joken
 
-  def create_token(id,name,email,avatar) do
+  def create_token(id) do
     secret = get_jwt_secret()
-    user_avatar = avatar
-    if nil == user_avatar do
-      user_avatar = avatar_url(email)
-    end
-    %{id: id, name: name, avatar: user_avatar}
+    %{id: id}
     |> Joken.token
     |> Joken.with_exp(current_time() + 604800)
     |> Joken.with_signer(Joken.hs256(secret))
