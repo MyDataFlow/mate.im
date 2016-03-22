@@ -25,3 +25,5 @@ erl_crash.dump
 /config/dev.secret.exs
 *.iml
 .idea
+rel
+

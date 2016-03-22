@@ -18,7 +18,7 @@ defmodule Mate.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Mate, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
+     applications: [:phoenix, :cowboy, :logger, :phoenix_html,  :gettext,
                     :phoenix_ecto, :postgrex, :bcrypt]]
   end
 
@@ -38,6 +38,7 @@ defmodule Mate.Mixfile do
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},
      {:bcrypt, github: "chef/erlang-bcrypt"},
+		 {:exrm, "~> 0.19"},
      {:uuid, github: "okeuday/uuid"},
      {:mailman, "~> 0.1.0"},
      {:eiconv, github: "zotonic/eiconv"},
