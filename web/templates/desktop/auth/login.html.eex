@@ -1,0 +1,33 @@
+<body class="hold-transition login-page">
+  <div class="login-box">
+    <div class="login-logo">
+      <a href="/"><b>Mate</b>.im</a>
+    </div><!-- /.login-logo -->
+    <%= render Mate.Desktop.SharedView, "_flash_error.html", conn: @conn %>
+    <div class="login-box-body">
+      <p class="login-box-msg"><%= gettext "Sign in" %></p>
+      <form action="<%= auth_path(@conn,:create) %>" method="post">
+        <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
+        <div class="form-group has-feedback">
+          <input type="email" class="form-control" placeholder="<%= gettext "Email" %>" name="email">
+          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="password" class="form-control" placeholder="<%= gettext "Password" %>" name="password">
+          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </div>
+        <div class="row">
+          <div class="col-xs-8">
+          </div><!-- /.col -->
+          <div class="col-xs-4">
+            <button type="submit" class="btn btn-primary btn-block btn-flat"><%= gettext "Sign In" %></button>
+          </div><!-- /.col -->
+        </div>
+      </form>
+
+      <a href="#"><%= gettext "I forgot my password" %></a><br>
+      <a href="<%= register_path(@conn,:new) %>" class="text-center"><%= gettext "Register a new membership" %></a>
+
+    </div><!-- /.login-box-body -->
+  </div><!-- /.login-box -->
+</body>
