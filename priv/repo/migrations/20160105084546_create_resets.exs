@@ -3,9 +3,8 @@ defmodule Repo.Migrations.CreateResets do
 
   def change do
     create table(:resets, primary_key: false) do
-      add :sha, :string
       add :email, :text
-
+      add :sha, :string
       timestamps
 
     end
