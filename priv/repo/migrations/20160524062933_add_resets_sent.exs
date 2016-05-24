@@ -9,9 +9,9 @@ defmodule Repo.Migrations.AddRestsSent do
   end
 
   def down do
-
     alter table(:resets) do
-        remove :sent
+      remove :sent
     end
   end
+  
 end
