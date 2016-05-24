@@ -42,7 +42,9 @@ defmodule Mate.Mixfile do
      {:uuid, github: "okeuday/uuid"},
      {:mailman, "~> 0.1.0"},
      {:eiconv, github: "zotonic/eiconv"},
-     {:joken, "~> 1.0.0"}]
+     {:joken, "~> 1.0.0"},
+     {:riakc_common, github: "riakc/riakc_common"},
+     {:riakc_phoenix, github: "riakc/riakc_phoenix"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.

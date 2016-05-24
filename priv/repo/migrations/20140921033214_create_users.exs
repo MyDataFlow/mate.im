@@ -3,7 +3,8 @@ defmodule Repo.Migrations.CreateUsers do
 
 
   def up do
-    create table(:users) do
+    create table(:users,primary_key: false) do
+      add :id, :bigserial, primary_key: true
       add :name, :text, null: false
       add :email, :text, null: false
       add :password, :text, null: false

@@ -4,8 +4,8 @@ defmodule Repo.Migrations.CreateComments do
   def up do
   	create table(:comments) do
       add :content, :text
-      add :user_id, references(:users)
-      add :post_id, references(:posts)
+      add :user_id, :bigint
+      add :post_id, :bigint
 
       timestamps
 

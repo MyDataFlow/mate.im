@@ -2,10 +2,7 @@ exports.config = {
   // See http://brunch.io/#documentation for docs.
   files: {
     javascripts: {
-      joinTo: {
-        "js/app.js": /^(web\/static\/js)/,
-        "js/vendor.js": /^(web\/static\/vendor)|(deps)/
-      },
+      joinTo: "js/app.js"
 
       // To use a separate vendor.js bundle, specify two files path
       // https://github.com/brunch/brunch/blob/stable/docs/config.md#files
@@ -22,15 +19,6 @@ exports.config = {
       //     "web/static/vendor/js/bootstrap.min.js"
       //   ]
       // }
-      order: {
-        before: [
-          "web/static/vendor/jquery-2.1.3.min.js",
-          "web/static/vendor/angular.min.js",
-          "web/static/vendor/moment.min.js"
-        ],
-        after: [
-        ]
-      }
     },
     stylesheets: {
       joinTo: "css/app.css"
