@@ -17,24 +17,12 @@ defmodule Mate.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    resources "/register", RegisterController, only: [:new,:create]
     
   end
 
   # Other scopes may use custom stacks.
-  scope "/api", Mate do
-    pipe_through :api
-
-    resources "/posts", PostController, except: [:new, :edit] do
-      resources "/comments", CommentController, except: [:new, :show, :edit, :update]
-    end
-
-    resources "/users", UserController, only: [:show, :update]
-
-    post "auth/signup", AuthController, :signup
-    post "auth/signin", AuthController, :signin
-    get "auth/email", AuthController, :email
-    get "auth/verify", AuthController, :verify
-    get "upyun/bucket", UpyunController, :bucket
-    
-  end
+  #scope "/api", Mate do
+  #  pipe_through :api
+  #end
 end

@@ -1,7 +1,7 @@
 defmodule Mate.AuthController do
   use Mate.Web, :controller
 
-  alias Mate.User
+  alias Mate.Models.User
   alias Mate.ControllerCommon
 
 

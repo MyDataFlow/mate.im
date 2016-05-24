@@ -1,4 +1,4 @@
-defmodule Mate.User do
+defmodule Mate.Models.User do
   use Mate.Web, :model
   alias Mate.Repo
 

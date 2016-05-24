@@ -1,5 +1,8 @@
 defmodule Mate.Common.Page do
-
+  
+  import Plug.Conn
+  import Phoenix.Controller
+  
   alias Mate.Common.Session
 
   def render_with_user(conn,template,assigns \\ []) do
