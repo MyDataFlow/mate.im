@@ -13,15 +13,4 @@ defmodule Mate.Common.Session do
     end
   end
 
-  def render_with_user(conn,template,assigns \\ []) do
-    user = user(conn)
-    if nil == user do
-      render(conn,template,assigns)
-    else
-      assigns = Keyword.merge(assigns, [user: user])
-      render(conn,template,assigns)
-    end
-    
-  end
-
 end
